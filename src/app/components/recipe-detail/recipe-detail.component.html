@@ -1,0 +1,87 @@
+<div *ngIf="recipe">
+  <!--chip-->
+  <ion-card>
+     <ion-card-content>
+          <ion-label>Tags</ion-label>
+          <ion-chip *ngFor="let tag of recipe.tags" color="secondary" outline="true">{{ tag }}</ion-chip>
+          <br>
+          <ion-label>Meal type</ion-label>
+          <ion-chip *ngFor="let type of recipe.mealType" color="secondary" outline="true">{{ type }}</ion-chip>
+     </ion-card-content>
+  </ion-card>
+  <!--Imagen-->
+  <ion-card>
+      <ion-img [src]="recipe.image"></ion-img>
+  </ion-card>
+  <ion-card>
+
+   <!--Informacion basica-->
+  <ion-card-header>Information basic:</ion-card-header>
+  <!--prepTimeMinutes,cookTimeMinutes,difficulty,servings,caloriesPerServing, rating-->
+  <ion-card-content>
+    <ion-grid>
+      <ion-row>
+        <ion-col size="4">
+          <ion-icon color="primary" name="time-outline" size="small"></ion-icon>
+          <br>
+          <b>prep.time</b>
+          <p>{{ recipe.prepTimeMinutes }} mins</p>
+        </ion-col>
+        <ion-col size="4">
+          <ion-icon color="primary" name="flame-outline" size="small"></ion-icon>
+          <br>
+          <b>cook time</b>
+          <p>{{ recipe.cookTimeMinutes }} mins</p>
+        </ion-col>
+        <ion-col size="4">
+          <ion-icon color="primary" name="extension-puzzle-outline" size="small"></ion-icon>
+          <br>
+          <b>difficulty</b>
+          <p>{{ recipe.difficulty }}</p>
+        </ion-col>
+        <ion-col size="4">
+          <ion-icon color="primary" name="people-outline" size="small"></ion-icon>
+          <br>
+          <b>servings</b>
+          <p>{{ recipe.servings }}</p>
+        </ion-col>
+        <ion-col size="4">
+          <ion-icon color="primary" name="nutrition-outline" size="small"></ion-icon>
+          <br>
+          <b>Calories</b>
+          <p>{{ recipe.caloriesPerServing }}</p>
+        </ion-col>
+        <ion-col size="4">
+          <ion-icon color="primary" name="star-outline" size="small"></ion-icon>
+          <br>
+          <b>rating</b>
+          <p>{{ recipe.rating }}</p>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </ion-card-content>
+  </ion-card>
+   <!--Ingredientes-->
+   <ion-card>
+      <ion-card-header>Ingredients</ion-card-header>
+      <ion-card-content>
+        <ion-list>
+          <ion-item *ngFor="let ingredient of recipe.ingredients" lines="none">
+            {{ ingredient }}
+          </ion-item>
+        </ion-list>
+      </ion-card-content>
+   </ion-card>
+   <!--Instrucciones--> 
+   <ion-card>
+    <ion-card-header>Instructions</ion-card-header>
+    <ion-card-content>
+      <ion-list>
+        <ion-item *ngFor="let step of recipe.instructions; let i = index" lines="none">
+          <ion-label>{{ i + 1 }} - {{ step }}</ion-label>
+        </ion-item>
+      </ion-list>
+    </ion-card-content>
+ </ion-card>
+  
+</div>

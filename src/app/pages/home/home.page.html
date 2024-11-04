@@ -1,0 +1,13 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>
+      Recipes
+    </ion-title>
+  </ion-toolbar>
+  
+</ion-header>
+
+<ion-content>
+  <ion-searchbar placeholder="Search recipes"></ion-searchbar>
+<app-recipe-item *ngFor="let recipe of recipes" [recipe]="recipe" (recipeClicked)="onRecipeClicked($event)"></app-recipe-item>
+</ion-content>
